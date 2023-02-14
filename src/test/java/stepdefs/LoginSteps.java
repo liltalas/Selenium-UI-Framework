@@ -3,7 +3,6 @@ package stepdefs;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -12,9 +11,9 @@ public class LoginSteps {
     // creating objects since 1 class can extend only 1 class
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
-    @Given("user enters valid username and password")
-    public void user_enters_valid_username_and_password() {
-      loginPage.enterValidLoginInfo();
+    @Given("user enters valid {string} and {string}")
+    public void user_enters_valid_username_and_password(String username, String password) {
+      loginPage.enterValidLoginInfo(username, password);
     }
 
     @When("user clicks on Sign in button")
