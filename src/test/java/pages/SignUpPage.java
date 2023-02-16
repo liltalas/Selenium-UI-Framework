@@ -111,11 +111,11 @@ public class SignUpPage extends BasePage {
 
         Thread.sleep(1000);
 
-        ssn.sendKeys("777-77-7078");
+        ssn.sendKeys("723-74-7078");
 
         Thread.sleep(1000);
 
-        emailAddress.sendKeys("asman@gmail.com");
+        emailAddress.sendKeys("asman12@gmail.com");
         Thread.sleep(1000);
         password.sendKeys("Bcd#12345");
         Thread.sleep(1000);
@@ -147,11 +147,11 @@ public class SignUpPage extends BasePage {
         country.sendKeys("United States");
         Thread.sleep(1000);
 
-        homePhone.sendKeys("294-345-7626");
+        homePhone.sendKeys("294-335-7626");
         Thread.sleep(1000);
-        mobilePhone.sendKeys("345-239-8464");
+        mobilePhone.sendKeys("345-234-8464");
         Thread.sleep(1000);
-        workPhone.sendKeys("893-924-4728");
+        workPhone.sendKeys("893-924-4726");
         Thread.sleep(1000);
 
         agreeTheTermsAndPolicy.click();
