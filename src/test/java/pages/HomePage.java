@@ -12,4 +12,7 @@ public class HomePage extends BasePage{
         Assert.assertTrue("Dashboard Text message is not visible.", dashboardMessage.isDisplayed() );
     }
 
+    public void goBackToTheLoginPage(){
+        driver.navigate().back();
+    }
 }

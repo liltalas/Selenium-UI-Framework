@@ -21,6 +21,12 @@ public class LoginPage extends BasePage {
     @FindBy (xpath = "//span[text()='Error']")
     WebElement errorMessage;
 
+    @FindBy (id = "remember-me")
+    WebElement rememberMeBox;
+
+    @FindBy (xpath = "//strong[text()='User Name']")
+    WebElement usernameTitle;
+
     public void enterValidLoginInfo(){
         usernameInput.sendKeys("helloworld@gmail.com");
         passwordInput.sendKeys("Abc12345");
@@ -43,6 +49,16 @@ public class LoginPage extends BasePage {
 
     public void verifyInvalidCredentialsError() throws InterruptedException {
         Assert.assertTrue("Could Not Find the Error Message", errorMessage.isDisplayed());
+        Thread.sleep(3000);
+    }
+
+    public void clickRememberMeBox() throws InterruptedException {
+        rememberMeBox.click();
+        Thread.sleep(3000);
+    }
+
+    public void verifyUserIsInLoginPage() throws InterruptedException {
+        Assert.assertTrue("The title Not Found!", usernameTitle.isDisplayed());
         Thread.sleep(3000);
     }
 }
