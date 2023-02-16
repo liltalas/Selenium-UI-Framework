@@ -26,4 +26,14 @@ public class LoginSteps {
     public void verify_user_is_successfully_logged_in_to_the_account() {
     homePage.verifyPage();
     }
+
+    @Given("user enters invalid username {string} and password {string}")
+    public void user_enters_invalid_username_and_password(String username, String password) throws InterruptedException {
+        loginPage.enterInvalidLoginInfo(username, password);
+    }
+
+    @Then("verify user receives the error message in the login page")
+    public void verify_user_receives_the_error_message_in_the_login_page() throws InterruptedException{
+        loginPage.verifyInvalidCredentialsError();
+    }
 }
