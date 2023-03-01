@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "stepdefs",
         tags = "@Smoke",
-        plugin = {"pretty", "html:target/cucumber-regression-report.html"}
+        plugin = {"pretty", "html:target/cucumber-smoke-report.html"}
 )
 public class SmokeRunner {
 

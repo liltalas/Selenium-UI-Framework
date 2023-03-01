@@ -26,7 +26,6 @@ public class LoginPage extends BasePage {
 
     @FindBy (xpath = "//strong[text()='User Name']")
     WebElement usernameTitle;
-
     public void enterValidLoginInfo(){
         usernameInput.sendKeys("helloworld@gmail.com");
         passwordInput.sendKeys("Abc12345");
