@@ -24,10 +24,6 @@ public class LoginSteps {
         loginPage.clickSignInBtn();
     }
 
-    @Then("verify user is successfully logged in to the account")
-    public void verify_user_is_successfully_logged_in_to_the_account() {
-    homePage.verifyPage();
-    }
 
     @Given("user enters invalid username {string} and password {string}")
     public void user_enters_invalid_username_and_password(String username, String password) throws InterruptedException {

@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import utilities.CommonMethods;
 import utilities.ConfigReader;
+import utilities.DataBaseUtils;
 import utilities.DriverUtilities;
 
 public class Hooks {
@@ -14,7 +15,9 @@ public class Hooks {
     public void setUp(Scenario scenario){
         // the properties object inside of the ConfigReader class we created
         ConfigReader.initializeProperties();
+        DataBaseUtils.initializeDBProperties();
         DriverUtilities.createDriver(scenario);
+
     }
 
     @After
@@ -25,9 +28,10 @@ public class Hooks {
         // and the name of the scenario as the name of the image
 //        if(scenario.isFailed()) {
 //            scenario.attach(CommonMethods.takeScreenshot(), "image/png", scenario.getName());
-//        }{
-//            DriverUtilities.driverQuit(scenario);
 //        }
-        DriverUtilities.getDriver().quit();
+       // CommonMethods.takeScreenshot(scenario);
+        DataBaseUtils.closeConnection();
+
+        DriverUtilities.driverQuit(scenario);
     }
 }

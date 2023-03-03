@@ -17,6 +17,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a[@id='view-savings-menu-item']")
     WebElement viewSavings;
 
+    @FindBy (xpath = "//a[@id = 'transfer-menu-item']")
+    WebElement transferBetweenAccounts;
+
     public void verifyPage(){
         Assert.assertTrue("Dashboard Text message is not visible.", dashboardMessage.isDisplayed() );
     }
@@ -39,4 +42,10 @@ public class HomePage extends BasePage{
         viewSavings.click();
         Thread.sleep(1000);
     }
+
+    // to transfer funds from one account to another
+    public void clickTheTransferBetweenAccountsMenu(){
+        transferBetweenAccounts.click();
+    }
+
 }
