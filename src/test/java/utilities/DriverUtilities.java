@@ -2,6 +2,8 @@ package utilities;
 
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +18,10 @@ import java.time.Duration;
 public class DriverUtilities {
 
     static WebDriver driver;
+    private static final Logger LOGGER = LogManager.getLogger(DriverUtilities.class);
 
     public static void createDriver(Scenario scenario) {
+        LOGGER.info("Driver setup started");
     // Set up an if statement to determine what the app.host value is. If it is localhost we will run test on local machine
         if(ConfigReader.getConfigProperty("app.host").equalsIgnoreCase("localhost")) {
             switch (ConfigReader.getConfigProperty("app.browser")) {
@@ -72,6 +76,13 @@ public class DriverUtilities {
 
         driver.get(ConfigReader.getConfigProperty("app.baseurl"));
         // We don't need this anymore : driver.get("http://18.116.88.132:8080/bank/login");
+        LOGGER.info("Driver connecting to: ");
+
+        if(driver == null){
+            LOGGER.warn("Driver instance was not created");
+        }
+
+        LOGGER.info("Driver setup and start is successful");
     }
 
     public static void driverQuit(Scenario scenario){
